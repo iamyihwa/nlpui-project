@@ -18,11 +18,12 @@ from django.urls import path, include
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
-from nlpmodules import views
+from nlpmodules import views as nlpmoduleviews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name = 'home' ),
-    path('nlpmodules/', include('nlpmodules.urls')), 
+    path('', nlpmoduleviews.home, name = 'home' ),
+    path('nlpmodules/', include('nlpmodules.urls')),
+    path('learnmore/', views.learnmore, name = 'learnmore')
     #path('nlpmodules/', include('nlpmodules.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
