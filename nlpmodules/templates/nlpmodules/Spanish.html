@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Spanish
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="{% url 'english' %}">English</a>
+    <a class="dropdown-item" href="{% url 'spanish' %}">Spanish</a>
+    <a class="dropdown-item" href="{% url 'romanian' %}">Romanian</a>
+    <a class="dropdown-item" href="{% url 'multilanguages' %}">Multi Languages </a>
+  </div>
+</div>
+spanish
+{% endblock %}
