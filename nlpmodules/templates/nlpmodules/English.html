@@ -21,8 +21,27 @@ english
   {{form.as_p}}
 <button type="submit" class="btn btn-primary">Analyze</button>
 </form>
+<div class="container">
+<p>
 {% if returned_text %}
 {{returned_text}}
 {% endif %}
+</p>
+<p>
+{% if ner_text %}
+{{ner_text}}
+{% endif %}
+</p>
+<p>
+{% if sent_2_text %}
+{{sent_2_text}}
+{% endif %}
+</p>
+<p>
+{% if sent_11_text %}
+{{sent_11_text}}
+{% endif %}
+</p>
+</div>
 </div>
 {% endblock %}

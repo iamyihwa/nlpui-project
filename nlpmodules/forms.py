@@ -1,7 +1,7 @@
 from django import forms
 
 class TextForm(forms.Form):
-    #class Meta : this shouldn't be there 
+    #class Meta : this shouldn't be there
     body = forms.CharField(max_length = 2000, widget = forms.Textarea(), help_text = 'Write here your text!')
     ner = forms.BooleanField(required=False, initial=True)
     sent_2 = forms.BooleanField(required=False, initial=True)

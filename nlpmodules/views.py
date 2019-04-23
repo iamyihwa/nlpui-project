@@ -14,14 +14,31 @@ def english(request):
         if filled_form.is_valid():
             returned_text = filled_form.cleaned_data['body']
             #result_form = TextResult()
-#            if filled_form.cleaned_data['ner']:
+            ner_on = filled_form.cleaned_data['ner']
+            sent_2_on = filled_form.cleaned_data['sent_2']
+            sent_11_on = filled_form.cleaned_data['sent_11']
 
+            if ner_on:
+                ner_text = 'ner on '
+            else:
+                ner_text = ''
+            if sent_2_on :
+                sent_2_text = 'sent 2 on'
+            else:
+                sent_2_text = ''
+            if sent_11_on:
+                sent_11_text = 'sent 11 on'
+            else:
+                sent_11_text =''
+
+            #if filled_form.cleaned_data['ner']:
+#                ner_text = 'Ner is on!'
 #            if filled_form.cleaned_data['sent_2']:
 #                result_form['sent_2_result'] =
 #            if filled_form.cleaned_data['sent_11']:
 #                result_form['sent_11_result']
             #ner_result = forms.CharField(max_length = 4000)
-            return render(request, 'nlpmodules/English.html', {'form': form, 'returned_text': returned_text})
+            return render(request, 'nlpmodules/English.html', {'form': form, 'returned_text': returned_text, 'ner_text' : ner_text, 'sent_2_text': sent_2_text, 'sent_11_text': sent_11_text})
     else:
 
     #Analyze with the added text
