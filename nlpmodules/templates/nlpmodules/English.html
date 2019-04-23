@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<!-- Bootstrap core CSS -->
 
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -12,36 +13,63 @@ English
     <a class="dropdown-item" href="{% url 'multilanguages' %}">Multi Languages </a>
   </div>
 </div>
+<br />
 
+<div class="row">
+{% if error %}
+</br></br>
+<h4>{{error}}</h4>
+</br></br></br></br>
+{% endif %}
+</div>
 
-english
-<div class="container">
 <form method = "post">
+
+<div class="form-group">
+  <div class="row">
+    <div class="col-md-8">
+
   {% csrf_token %}
-  {{form.as_p}}
+{% load widget_tweaks %}
+
+<b>{{form.text.label_tag}}</b>
+{% render_field form.text class="form-control"%}
 <button type="submit" class="btn btn-primary">Analyze</button>
-</form>
-<div class="container">
-<p>
+
+  </div>
+  <div class="col-md-4">
+<b>{{form.ner.label_tag}}</b>
+{{form.ner}}
+<br />
+<b>{{form.sent_2.label_tag}}</b>
+{{form.sent_2}}
+<br />
+<b>{{form.sent_11.label_tag}}</b>
+{{form.sent_11}}
+    </div>
+
+</div>
+
+<div class="row">
+<br />
+
 {% if returned_text %}
 {{returned_text}}
 {% endif %}
-</p>
-<p>
+<br />
 {% if ner_text %}
 {{ner_text}}
 {% endif %}
-</p>
-<p>
+<br />
 {% if sent_2_text %}
 {{sent_2_text}}
 {% endif %}
-</p>
-<p>
+<br />
 {% if sent_11_text %}
 {{sent_11_text}}
 {% endif %}
-</p>
+
 </div>
 </div>
+</form>
 {% endblock %}
